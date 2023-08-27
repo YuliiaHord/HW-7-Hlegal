@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./styles/reset.css">
+	<link rel="stylesheet" href="./styles/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<title>Hlegal</title>
+</head>
+<body>
+<header class="header">
+	<div class="menu">
+		<div class="menu__contacts">
+			<div class="container menu__container">
+				<div class="menu__lang-btn">
+					<button>УК</button>
+					<button>РУ</button>
+					<button>EN</button>
+				</div>
+				<ul class="menu__contacts-list">
+					<li class="contacts-item address">Kyiv, Mechnikova str, 14/1</li>
+					<li class="contacts-item tel"><a href="+380800211927">0800 211 927</a></li>
+					<li class="contacts-item icon"><a href="#">
+						<svg width="24px" height="25px">
+							<use href="./sprite.svg#facebook" width="24px" height="25px"/>
+						</svg>
+					</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="menu__hamburger">
+			
+			<div class="container">
+				<div class="menu__logo" >
+					<svg width="70" height="73" class="logo-s">
+						<use href="./sprite.svg#logo-s" width="70" height="73"/>
+					</svg>
+					<svg width="130" height="60" class="logo-m">
+						<use href="./sprite.svg#logo-m" width="130" height="60"/>
+					</svg>
+					<svg width="12" height="26" class="slash">
+						<use href="./sprite.svg#slash" width="12" height="26"/>
+					</svg>
+					<p>services</p>
+				</div>
+				<div class="menu__ham">
+					<label class="ham-label" for="check"></label>
+					<input class="checkbox" type="checkbox" name="check" id="check">
+					<div class="hamburger-lines">
+						<span class="line line1"></span>
+						<span class="line line2"></span>
+						<span class="line line3"></span>
+					</div>
+				</div>
+			</div>
+				<div class="tablet__container">
+				<ul class="menu-items">
+					<li>
+						<svg class="ham-btn" width="32" height="32">
+							<use href="./sprite.svg#cross" width="32" height="32"/>
+						</svg>
+					</li>
+					<li><a href="#">about us</a></li>
+					<li><a href="#">services</a></li>
+					<li><a href="#">team</a></li>
+					<li><a href="#">publications</a></li>
+					<li><a href="#">contacts</a></li>
+				</ul>
+				</div>
+		</div>
+	</div>
+</header>
+<main>
+	<section class="h-section">
+		<picture>
+			<source media="(min-width:1200px)" srcset="./images/h-1200.svg">
+			<source media="(min-width:1024px)" srcset="./images/h-1024.svg">
+			<source media="(min-width:576px)" srcset="./images/h-576.svg">
+			<img src="./images/h-s.svg" alt="h-symbol" style="width:auto;">
+		</picture>
+		<!--<img src="./images/h-s.svg" alt="h-symbol">-->
+		<div class="h-section__wrapper">
+		<h1>you legal solutions provider</h1>
+		<a href="#"><svg width="42" height="42" class="scroll-btn">
+			<use href="./sprite.svg#scroll-btn" width="42" height="42"/>
+		</svg></a>
+		</div>
+	</section>
+	
+</main>
+		<script>
+			$(document).ready(function(){
+				$(".ham-btn").click(function(){
+					$(".menu-items").hide();
+				});
+			});
+			$(document).ready(function(){
+				$(".ham-label").click(function(){
+					$(".menu-items").show();
+				});
+			});
+		</script>
+</body>
+</html>

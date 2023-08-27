@@ -1,0 +1,107 @@
+@use "base";
+html {
+  background-size: cover;
+  background: base.$gradient-text-supersoft, center center/cover, no-repeat;
+}
+.h-section{
+  &__wrapper{
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  picture{
+    position: relative;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    img{
+      width: 523.404px;
+      height: 100vh;
+    }
+  }
+  h1{
+    position: absolute;
+    top: 35%;
+    max-width: 315px;
+    text-align: center;
+    line-height: normal;
+  }
+  a{
+    position: absolute;
+    display: block;
+    top: 90%;
+    left: 45%;
+    :hover{
+      svg{
+        cursor: pointer;
+      }
+    }
+    svg{
+      color: base.$white;
+    }
+  }
+  @include base.small-tablet{
+    &__wrapper{
+      max-width: 576px;
+    }
+    picture{
+      left: 0;
+      img{
+        width: 893.277px;
+      }
+    }
+    h1{
+      top: 43%;
+      max-width: 450px;
+      left: 16%;
+    }
+
+  }
+  @include base.tablet{
+    &__wrapper{
+      max-width: 768px;
+    }
+    picture{
+      left: 0;
+      img{
+        width: 893.277px;
+      }
+    }
+    h1{
+      top: 48%;
+      max-width: 562px;
+      left: 17%;
+    }
+  }
+  @include base.large{
+    &__wrapper{
+      max-width: 1024px;
+    }
+    picture{
+      left: -10%;
+      img{
+        width: 669.957px;
+      }
+    }
+    h1{
+      top: 47%;
+      max-width: 800px;
+      left: 23%;
+    }
+  }
+  @include base.laptop{
+    &__wrapper{
+      max-width: 1200px;
+    }
+    picture{
+      left: 27%;
+      img{
+        width: 697px;
+      }
+    }
+    h1{
+      top: 46%;
+      max-width: 800px;
+      left: 32%;
+    }
+  }
+}
