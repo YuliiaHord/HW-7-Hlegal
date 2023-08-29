@@ -68,10 +68,11 @@ body{
   line-height: 26px;
   color: white;
   position: relative;
+  overflow-x: hidden;
 }
 
 .container{
-  max-width: 320px;
+  max-width: 375px;
   width: 100%;
   margin: 0 auto;
   padding: 0 15px;
@@ -86,7 +87,7 @@ body{
     max-width: 1024px;
   }
   @include laptop{
-    max-width: 1200px;
+    max-width: 1320px;
   }
 }
 .gradient-text-v1{
@@ -133,14 +134,16 @@ h4{
     background: rgba(245, 245, 250, 0.20);
     height: 45px;
     padding-top: 10px;
+    position: fixed;
+    width: 100%;
   }
 
   &__lang-btn {
     display: flex;
-    gap: 14px;
 
     button {
       background-color: transparent;
+      font-family: "Montserrat", sans-serif;
       border: none;
       font-size: 12px;
       text-align: center;
@@ -170,7 +173,6 @@ h4{
   &__hamburger {
     align-content: center;
     max-height: 90px;
-    margin-top: 7px;
     @include flex-center-vert;
 
     .checkbox {
@@ -181,11 +183,11 @@ h4{
     }
 
     .hamburger-lines {
-      height: 26px;
-      width: 32px;
+      height: 15px;
+      width: 21px;
       position: absolute;
       top: 65px;
-      right: 45px;
+      right: 20px;
       z-index: 2;
       @include flex-column;
     }
@@ -210,12 +212,13 @@ h4{
       width: 32px;
       height: 32px;
       top: 65px;
-      right: 45px;
+      right: 20px;
       z-index: 3;
     }
 
     ul {
-      position: absolute;
+      position: fixed;
+      list-style-type: none;
       display: none;
       flex-direction: column;
       gap: 15px;
@@ -223,8 +226,10 @@ h4{
       background-color: white;
       width: 95%;
       left: 2.5%;
-      top: 0;
+      bottom: 0;
       padding: 12px;
+      z-index: 5;
+      border-radius: 12px 12px 0 0;
 
       li:first-of-type {
         background-color: transparent;
@@ -236,7 +241,7 @@ h4{
 
       li {
         height: 43px;
-
+        margin-top: 15px;
         > a {
           color: $btn-regular-color;
           background-color: $grey-bg;
@@ -259,6 +264,8 @@ h4{
     display: flex;
     align-items: center;
     gap: 4px;
+    margin-bottom: 36px;
+    margin-top: 90px;
 
     p {
       font-size: 20px;
@@ -274,6 +281,7 @@ h4{
   @include small-tablet {
     &__contacts {
       background: transparent;
+      position: static;
     }
     &__container {
       justify-content: flex-start;
@@ -282,10 +290,18 @@ h4{
       display: flex;
       margin-left: 25px;
       gap: 6px;
-
+      >li:nth-of-type(2){
+        position: relative;
+        top: -2px;
+        :before{
+          content: "\2022";
+          position: absolute;
+          font-size: 27px;
+        }
+      }
       > li {
         display: inline-block;
-        font-size: 10px;
+        font-size: 14px;
         margin-left: 4px;
         position: relative;
 
@@ -293,11 +309,14 @@ h4{
           content: "\2022";
           left: -7px;
           position: absolute;
+          font-weight: 700;
+          font-size: 27px;
         }
-      }
 
-      a {
-        font-size: 10px;
+        a {
+          font-size: 14px;
+          font-weight: 700;
+        }
       }
 
       .address {
@@ -311,6 +330,7 @@ h4{
         position: absolute;
         left: -10px;
         font-weight: 700;
+        font-size: 27px;
       }
     }
     .slash {
@@ -318,6 +338,10 @@ h4{
     }
     p {
       display: none;
+    }
+    &__logo{
+      margin-top: 0;
+      margin-bottom: 0;
     }
     &__hamburger {
       display: block;
@@ -362,14 +386,30 @@ h4{
 
 
   @include tablet {
+    &__contacts{
+      margin-top: 40px;
+    }
+
+    &__lang-btn {
+      :nth-of-type(3) {
+        padding: 5px 7px;
+      }
+    }
     &__contacts-list {
+      height: 20px;
+      margin-left: 8px;
       > li {
         font-size: 16px;
         margin-left: 9px;
-
+        padding-left: 5px;
         ::before {
           content: "\2022";
           left: -10px;
+          font-weight: 700;
+          font-size: 24px;
+        }
+        .facebook-ico::before{
+          top:-5px;
         }
       }
       a {
@@ -377,6 +417,7 @@ h4{
       }
     }
     &__logo {
+      margin-top: 20px;
       .logo-s {
         display: none;
       }
@@ -387,7 +428,8 @@ h4{
     }
 
     .menu-items {
-      padding: 30px 0 0 0;
+      padding: 10px 0 0 0;
+      gap: 15px;
 
       li {
         a {
@@ -407,20 +449,29 @@ h4{
         max-width: 1024px;
         display: flex;
         justify-content: flex-end;
-        margin-top: 50px;
-        padding: 0 50px;
+        padding: 0 60px;
       }
-
+      &__lang-btn{
+        gap:5px;
+      }
       &__contacts-list {
-        margin-left: 6px;
+        margin-left: 15px;
         position: relative;
+        color: $white;
+        .address{
+          color: $white;
+          font-size:16px;
+          :before{
+            left: -20px;
+          }
+        }
       }
-
       &__logo {
+        margin-top: 0;
         .logo-m {
           position: absolute;
-          bottom: 15px;
-          left: 10%;
+          top: 50px;
+          left: 6%;
         }
       }
 
@@ -431,27 +482,131 @@ h4{
 
       .menu-items {
         justify-content: flex-end;
-        margin-top: 18px;
+        margin-top: -15px;
+        padding-top: 0;
         width: 100%;
       }
   }
   @include laptop{
   &__container {
-    max-width: 1200px;
+    max-width: 1320px;
+    padding: 0 60px;
   }
+    &__lang-btn{
+      gap:0;
+    }
+    &__contacts-list{
+      margin-left: 5px;
+    }
     &__logo {
       .logo-m {
-        bottom: 20px;
-        left: 10%;
+        left: 4%;
       }
     }
     .tablet__container {
-      max-width: 1200px;
-      padding: 0 50px;
+      max-width: 1320px;
+      padding: 0 60px;
       margin: 0 auto;
     }
   }
 }
+
+.services-section{
+  border-radius: 0 0 20px 20px;
+  padding:0 15px;
+  .services__heading{
+    a{
+      text-transform: uppercase;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: normal;
+      color: $btn-active-color;
+    }
+    h2{
+      line-height: normal;
+      padding-bottom: 30px;
+    }
+  }
+  .grid-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+    gap: 0;
+    .services__item{
+      img{
+        background-color: $white;
+        padding: 14px;
+        border-radius: 24px;
+        margin-bottom: 30px;
+      }
+
+      h3{
+        color: $btn-regular-color;
+        margin-bottom: 15px;
+        line-height: normal;
+      }
+      p{
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 30px;
+      }
+      &:last-child{
+        img{
+          padding:23px;
+        }
+      }
+    }
+  }
+  @include tablet{
+    .container{
+      padding: 0 50px;
+    }
+    .services__heading{
+      a{
+        display: block;
+        padding-bottom: 20px;
+      }
+      h2{
+        font-size: 38px;
+        line-height: normal;
+        padding-bottom:60px;
+        margin-top: -15px;
+      }
+    }
+    .grid-wrapper {
+      gap: 0 60px;
+    }
+  }
+  @include large{
+    .services__heading{
+      margin-top: 77px;
+    }
+    .grid-wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
+      min-height: 800px;
+    }
+    p{
+      line-height: 26px;
+    }
+  }
+  @include laptop{
+    .grid-wrapper{
+      grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
+    }
+    .services__heading{
+      h2{
+        padding-bottom:60px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
 
 
 

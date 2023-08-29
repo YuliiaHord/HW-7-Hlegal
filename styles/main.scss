@@ -1,107 +1,415 @@
 @use "base";
+
 html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
   background-size: cover;
   background: base.$gradient-text-supersoft, center center/cover, no-repeat;
 }
-.h-section{
-  &__wrapper{
-    max-width: 320px;
-    margin: 0 auto;
-  }
-  picture{
-    position: relative;
-    z-index: -1;
-    left: 0;
-    right: 0;
-    img{
-      width: 523.404px;
-      height: 100vh;
-    }
-  }
-  h1{
+
+.h-section {
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+
+  img {
     position: absolute;
-    top: 35%;
-    max-width: 315px;
+    z-index: -1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 523.404px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 315px;
     text-align: center;
     line-height: normal;
   }
-  a{
+
+  a {
     position: absolute;
-    display: block;
-    top: 90%;
-    left: 45%;
-    :hover{
-      svg{
-        cursor: pointer;
-      }
-    }
-    svg{
+    left: 50%;
+    top: 96%;
+    transform: translate(-50%, -96%);
+
+    svg {
       color: base.$white;
+      transition: color 0.5s linear;
+    }
+
+    :hover {
+      cursor: pointer;
+      color: base.$accent-color;
     }
   }
-  @include base.small-tablet{
-    &__wrapper{
-      max-width: 576px;
+
+  @include base.small-tablet {
+    h1 {
+      min-width: 500px;
     }
-    picture{
-      left: 0;
-      img{
-        width: 893.277px;
-      }
+  }
+  @include base.tablet {
+
+    min-height: 1024px;
+    img {
+      width: 893.277px;
     }
-    h1{
-      top: 43%;
-      max-width: 450px;
-      left: 16%;
+
+    h1 {
+      min-width: 562px;
+    }
+    a {
+      top: 98%;
+      transform: translate(-50%, -100%);
     }
 
   }
-  @include base.tablet{
-    &__wrapper{
-      max-width: 768px;
+  @include base.large {
+    min-height: 768px;
+
+    img {
+      width: 669.957px;
     }
-    picture{
-      left: 0;
-      img{
-        width: 893.277px;
-      }
+
+    h1 {
+      min-width: 1024px;
     }
-    h1{
-      top: 48%;
-      max-width: 562px;
-      left: 17%;
+    a {
+      top: 97%;
     }
+
   }
-  @include base.large{
-    &__wrapper{
-      max-width: 1024px;
+  @include base.laptop {
+    min-height: 800px;
+
+    img {
+      left: 50.5%;
+      width: 697px;
     }
-    picture{
-      left: -10%;
-      img{
-        width: 669.957px;
-      }
+
+    h1 {
+      min-width: 800px;
+      left: 50.5%;
     }
-    h1{
-      top: 47%;
-      max-width: 800px;
-      left: 23%;
-    }
-  }
-  @include base.laptop{
-    &__wrapper{
-      max-width: 1200px;
-    }
-    picture{
-      left: 27%;
-      img{
-        width: 697px;
-      }
-    }
-    h1{
-      top: 46%;
-      max-width: 800px;
-      left: 32%;
+    a {
+      left: 50.5%;
     }
   }
 }
+
+.tabs-section {
+  #tabs {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+
+
+    ul {
+      font-family: "Montserrat", sans-serif;
+      background-color: transparent;
+      border: none;
+      border-bottom: 4px solid rgba(255, 255, 255, 0.30);
+      display: flex;
+      overflow-x: scroll;
+      overflow-y: hidden;
+
+      li {
+        background-color: transparent;
+        border: none;
+        font-weight: 700;
+        line-height: normal;
+
+        :focus {
+          background: -webkit-linear-gradient(118deg, #F0145A 0%, #EF8080 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        a {
+          color: base.$text-color;
+          padding: 25px 20px 30px 8px;
+          font-size: 30px;
+        }
+      }
+    }
+
+    .tabs__text {
+      margin-top: 27px;
+      min-height: 250px;
+
+      div {
+        color: base.$white;
+        font-family: "Montserrat", sans-serif;
+        padding: 0 12px;
+
+        h2 {
+          font-size: 20px;
+          padding-bottom: 30px;
+        }
+
+        p {
+          font-size: 19px;
+          line-height: 30px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  @include base.tablet {
+    #tabs {
+      ul {
+        li {
+          a {
+            font-size: 38px;
+            padding: 54px 20px 60px 0px;
+          }
+        }
+      }
+
+      .tabs__text {
+        margin-top: 67px;
+
+        div {
+          padding: 0;
+
+          h2 {
+            font-size: 30px;
+            padding-bottom: 35px;
+          }
+        }
+
+      }
+    }
+
+  }
+  @include base.large {
+    #tabs {
+      flex-direction: row;
+      max-height: 307px;
+      margin-top: 37px;
+
+      ul {
+        flex-direction: column;
+        gap: 28px;
+        max-width: 380px;
+        overflow-x: hidden;
+        border-bottom: none;
+        align-items: flex-end;
+
+        li {
+          a {
+            display: block;
+            max-width: 375px;
+            padding: 0;
+          }
+        }
+      }
+
+      .tabs__text {
+        max-width: 465px;
+        margin-left: 60px;
+        padding-left: 60px;
+        margin-top: 30px;
+        border-left: 4px solid rgba(255, 255, 255, 0.30);
+
+        div {
+          h2 {
+            font-size: 30px;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+  @include base.laptop {
+    #tabs {
+      margin-bottom: 60px;
+      margin-top: 60px;
+
+      ul {
+        margin-top: 0;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 30px;
+        min-height: 320px;
+
+        li {
+          a {
+            padding: 0;
+          }
+        }
+      }
+
+      .tabs__text {
+        max-width: 705px;
+        margin-top: 0;
+        padding-top: 60px;
+      }
+    }
+  }
+}
+
+.team {
+  background-color: base.$white;
+  color: base.$text-color;
+  padding: 30px 0;
+
+  .slick-slide {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__slider {
+    background-color: base.$grey-bg;
+    max-width: 315px;
+    min-height: 587px;
+    margin: 0 auto;
+
+    &__slider-item {
+      margin-bottom: 30px;
+      @include base.flex-column;
+    }
+
+    img {
+      max-width: 315px;
+      width: 100%;
+      min-height: 515px;
+      object-fit: cover;
+    }
+
+    a {
+      text-transform: uppercase;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: normal;
+      color: base.$btn-regular-color;
+    }
+
+    .member__text {
+      padding: 30px;
+
+      h2 {
+        line-height: normal;
+        font-size: 30px;
+        padding-bottom: 30px;
+      }
+
+      h4 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+      }
+    }
+
+    .slick-dots {
+      bottom: -50px;
+
+      button::before {
+        opacity: 0.5;
+        font-size: 16px;
+        color: base.$btn-regular-color;
+      }
+
+      .slick-active {
+        button:before {
+          opacity: 2;
+          color: base.$btn-regular-color;
+        }
+      }
+    }
+  }
+
+  @include base.small-tablet {
+    &__slider {
+      max-width: 500px;
+
+      &-item {
+        img {
+          max-width: 500px;
+        }
+      }
+    }
+  }
+
+  @include base.tablet {
+    padding: 60px 0;
+    &__slider {
+      max-width: 648px;
+
+      &-item {
+        img {
+          max-width: 648px;
+        }
+      }
+    }
+  }
+  @include base.large {
+    padding: 60px 0;
+    .slick-slide {
+      display: flex;
+      flex-direction: row;
+    }
+    &__slider {
+      min-height: 528px;
+      max-width: 904px;
+
+      &-item {
+        img {
+          max-width: 400px;
+          width: 100%;
+          min-height: 528px;
+          height: 100%;
+        }
+
+        .member__text {
+          max-width: 504px;
+
+          h2 {
+            font-size: 38px;
+          }
+        }
+      }
+    }
+  }
+  @include base.laptop {
+    .container {
+      max-width: 1320px;
+    }
+    &__slider {
+      min-height: 344px;
+      max-width: 1320px;
+      &-item {
+        img {
+          max-width: 400px;
+          width: 100%;
+          min-height: 344px;
+          height: 100%;
+        }
+        .member__text {
+          max-width: 920px;
+        }
+      }
+    }
+  }
+}
+
+
+
