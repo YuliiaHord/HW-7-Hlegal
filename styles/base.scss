@@ -1,7 +1,7 @@
 $white: #ffff;
-$main-color:  #323264;
-$main-color-alt:#46466E;
-$main-color-soft:#686887;
+$main-color: #323264;
+$main-color-alt: #46466E;
+$main-color-soft: #686887;
 
 $accent-color: #F0145A;
 
@@ -9,16 +9,16 @@ $btn-regular-color: #24A3FF;
 $btn-hover-color: #0085FF;
 $btn-active-color: #006CCF;
 
-$grey-bg:#F5F5FA;
-$grey-alt-bg:#EDEDF7;
-$text-color:#B3B3BA;
-$separator-color:#E6E6F0;
+$grey-bg: #F5F5FA;
+$grey-alt-bg: #EDEDF7;
+$text-color: #B3B3BA;
+$separator-color: #E6E6F0;
 
-$gradient-text-regular:linear-gradient(135deg, #323264 0%, #323264 73.96%, #A54B5F 100%);
-$gradient-text-soft:linear-gradient(23deg, #323264 0%, #323264 50.63%, #7A425E 100%);
-$gradient-text-red:linear-gradient(310deg, #F0145A 0%, #693264 100%);
-$gradient-text-supersoft:linear-gradient(208deg, #323264 0%, #323264 59.90%, #643E72 100%);
-$gradient-text-redtext:linear-gradient(118deg, #F0145A 0%, #EF8080 100%);
+$gradient-text-regular: linear-gradient(135deg, #323264 0%, #323264 73.96%, #A54B5F 100%);
+$gradient-text-soft: linear-gradient(23deg, #323264 0%, #323264 50.63%, #7A425E 100%);
+$gradient-text-red: linear-gradient(310deg, #F0145A 0%, #693264 100%);
+$gradient-text-supersoft: linear-gradient(208deg, #323264 0%, #323264 59.90%, #643E72 100%);
+$gradient-text-redtext: linear-gradient(118deg, #F0145A 0%, #EF8080 100%);
 
 $small-tablet: 576;
 $tablet: 768;
@@ -30,38 +30,44 @@ $laptop: 1200;
   flex-direction: column;
   justify-content: space-between;
 }
+
 @mixin flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 @mixin flex-center-vert {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 @mixin small-tablet {
   @media only screen and (min-width: $small-tablet * 1px) {
     @content;
   }
 }
+
 @mixin tablet {
   @media only screen and (min-width: $tablet * 1px) {
     @content;
   }
 }
+
 @mixin large {
   @media only screen and (min-width: $large * 1px) {
     @content;
   }
 }
+
 @mixin laptop {
   @media only screen and (min-width: $laptop * 1px) {
     @content;
   }
 }
 
-body{
+body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -71,50 +77,64 @@ body{
   overflow-x: hidden;
 }
 
-.container{
+.container {
   max-width: 375px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 15px;
-  @include small-tablet{
+  padding: 0 30px;
+  @include small-tablet {
     max-width: 576px;
     padding: 0 60px;
   }
-  @include tablet{
+  @include tablet {
     max-width: 768px;
   }
-  @include large{
+  @include large {
     max-width: 1024px;
   }
-  @include laptop{
+  @include laptop {
     max-width: 1320px;
   }
 }
-.gradient-text-v1{
+
+.gradient-text-v1 {
   background: $gradient-text-redtext;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-h1{
+.link {
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: normal;
+  color: $btn-regular-color;
+}
+
+h1 {
   font-size: 38px;
   font-weight: 700;
 }
-h2{
+
+h2 {
   font-size: 30px;
   font-weight: 700;
 }
-h3{
+
+h3 {
   font-size: 22px;
   font-weight: 700;
 }
-h4{
+
+h4 {
   font-size: 16px;
   font-weight: 700;
 }
 
-.header{
+.header {
   position: absolute;
   min-width: 320px;
   width: 100%;
@@ -122,6 +142,7 @@ h4{
   top: 0;
   left: 0;
   font-weight: 700;
+  z-index: 2;
 }
 
 .menu {
@@ -140,6 +161,12 @@ h4{
 
   &__lang-btn {
     display: flex;
+
+    :hover {
+      background: rgba(255, 255, 255, 0.20);
+      cursor: pointer;
+      border-radius: 8px;
+    }
 
     button {
       background-color: transparent;
@@ -242,6 +269,7 @@ h4{
       li {
         height: 43px;
         margin-top: 15px;
+
         > a {
           color: $btn-regular-color;
           background-color: $grey-bg;
@@ -289,16 +317,21 @@ h4{
     &__contacts-list {
       display: flex;
       margin-left: 25px;
-      gap: 6px;
-      >li:nth-of-type(2){
+      gap: 15px;
+
+      > li:nth-of-type(2) {
         position: relative;
         top: -2px;
-        :before{
+
+        :before {
           content: "\2022";
           position: absolute;
-          font-size: 27px;
+          font-size: 25px;
+          left: -15px;
+          top: -2px;
         }
       }
+
       > li {
         display: inline-block;
         font-size: 14px;
@@ -307,15 +340,22 @@ h4{
 
         ::before {
           content: "\2022";
-          left: -7px;
+          left: -14px;
+          top: -4px;
           position: absolute;
           font-weight: 700;
-          font-size: 27px;
+          font-size: 25px;
         }
 
         a {
           font-size: 14px;
           font-weight: 700;
+        }
+
+        a:hover {
+          svg {
+            color: $accent-color;
+          }
         }
       }
 
@@ -328,7 +368,8 @@ h4{
         content: "\2022";
         color: $white;
         position: absolute;
-        left: -10px;
+        left: -14px;
+        top: -4px;
         font-weight: 700;
         font-size: 27px;
       }
@@ -339,7 +380,7 @@ h4{
     p {
       display: none;
     }
-    &__logo{
+    &__logo {
       margin-top: 0;
       margin-bottom: 0;
     }
@@ -374,6 +415,16 @@ h4{
           color: $white;
           font-size: 10px;
           padding: 0;
+          border-radius: unset;
+        }
+
+        a:hover {
+          border-bottom: 2px solid $white;
+        }
+
+        a:active {
+          border-bottom: 2px solid $accent-color;
+          color: $accent-color;
         }
       }
     }
@@ -386,7 +437,7 @@ h4{
 
 
   @include tablet {
-    &__contacts{
+    &__contacts {
       margin-top: 40px;
     }
 
@@ -398,26 +449,31 @@ h4{
     &__contacts-list {
       height: 20px;
       margin-left: 8px;
+
       > li {
         font-size: 16px;
         margin-left: 9px;
         padding-left: 5px;
+
         ::before {
           content: "\2022";
           left: -10px;
           font-weight: 700;
           font-size: 24px;
         }
-        .facebook-ico::before{
-          top:-5px;
+
+        .facebook-ico::before {
+          top: -5px;
         }
       }
+
       a {
         font-size: 16px;
       }
     }
     &__logo {
       margin-top: 20px;
+
       .logo-s {
         display: none;
       }
@@ -445,57 +501,60 @@ h4{
   }
 
   @include large {
-      &__container {
-        max-width: 1024px;
-        display: flex;
-        justify-content: flex-end;
-        padding: 0 60px;
-      }
-      &__lang-btn{
-        gap:5px;
-      }
-      &__contacts-list {
-        margin-left: 15px;
-        position: relative;
-        color: $white;
-        .address{
-          color: $white;
-          font-size:16px;
-          :before{
-            left: -20px;
-          }
-        }
-      }
-      &__logo {
-        margin-top: 0;
-        .logo-m {
-          position: absolute;
-          top: 50px;
-          left: 6%;
-        }
-      }
-
-      .tablet__container {
-        max-width: 1024px;
-        margin: 0 auto;
-      }
-
-      .menu-items {
-        justify-content: flex-end;
-        margin-top: -15px;
-        padding-top: 0;
-        width: 100%;
-      }
-  }
-  @include laptop{
-  &__container {
-    max-width: 1320px;
-    padding: 0 60px;
-  }
-    &__lang-btn{
-      gap:0;
+    &__container {
+      max-width: 1024px;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 60px;
     }
-    &__contacts-list{
+    &__lang-btn {
+      gap: 5px;
+    }
+    &__contacts-list {
+      margin-left: 15px;
+      position: relative;
+      color: $white;
+
+      .address {
+        color: $white;
+        font-size: 16px;
+
+        :before {
+          left: -20px;
+        }
+      }
+    }
+    &__logo {
+      margin-top: 0;
+
+      .logo-m {
+        position: absolute;
+        top: 50px;
+        left: 6%;
+      }
+    }
+
+    .tablet__container {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    .menu-items {
+      justify-content: flex-end;
+      margin-top: -15px;
+      padding-top: 0;
+      width: 100%;
+    }
+  }
+  @include laptop {
+    &__container {
+      max-width: 1320px;
+      padding: 0 60px;
+    }
+    &__lang-btn {
+      gap: 0;
+    }
+    &__contacts-list {
       margin-left: 5px;
     }
     &__logo {
@@ -511,66 +570,69 @@ h4{
   }
 }
 
-.services-section{
+.services-section {
+  background: $gradient-text-supersoft, center center/cover, no-repeat;
   border-radius: 0 0 20px 20px;
-  padding:0 15px;
-  .services__heading{
-    a{
-      text-transform: uppercase;
-      font-family: Montserrat, sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      line-height: normal;
+  padding: 0 15px;
+
+  .services__heading {
+    a {
       color: $btn-active-color;
     }
-    h2{
+
+    h2 {
       line-height: normal;
       padding-bottom: 30px;
     }
   }
-  .grid-wrapper{
+
+  .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
     gap: 0;
-    .services__item{
-      img{
+
+    .services__item {
+      img {
         background-color: $white;
         padding: 14px;
         border-radius: 24px;
         margin-bottom: 30px;
       }
 
-      h3{
+      h3 {
         color: $btn-regular-color;
         margin-bottom: 15px;
         line-height: normal;
       }
-      p{
+
+      p {
         font-size: 16px;
         line-height: 26px;
         margin-bottom: 30px;
       }
-      &:last-child{
-        img{
-          padding:23px;
+
+      &:last-child {
+        img {
+          padding: 23px;
         }
       }
     }
   }
-  @include tablet{
-    .container{
+
+  @include tablet {
+    .container {
       padding: 0 50px;
     }
-    .services__heading{
-      a{
+    .services__heading {
+      a {
         display: block;
         padding-bottom: 20px;
       }
-      h2{
+
+      h2 {
         font-size: 38px;
         line-height: normal;
-        padding-bottom:60px;
+        padding-bottom: 60px;
         margin-top: -15px;
       }
     }
@@ -578,29 +640,375 @@ h4{
       gap: 0 60px;
     }
   }
-  @include large{
-    .services__heading{
-      margin-top: 77px;
+  @include large {
+    .services__heading {
+      padding-top: 77px;
     }
     .grid-wrapper {
       grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
       min-height: 800px;
     }
-    p{
+    p {
       line-height: 26px;
     }
   }
-  @include laptop{
-    .grid-wrapper{
+  @include laptop {
+    .grid-wrapper {
       grid-template-columns: repeat(auto-fit, minmax(261px, 1fr));
     }
-    .services__heading{
-      h2{
-        padding-bottom:60px;
+    .services__heading {
+      h2 {
+        padding-bottom: 60px;
       }
     }
   }
 }
+
+.partners-section {
+  background-color: $white;
+  padding-top: 30px;
+
+  h3 {
+    color: $main-color;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  .partners__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+
+    .partners-card {
+      img {
+        display: block;
+        width: 100%
+      }
+    }
+
+    .mobile-hidden {
+      display: none;
+    }
+  }
+
+  @include small-tablet {
+    .partners__wrapper {
+      .mobile-hidden {
+        display: block;
+      }
+    }
+  }
+
+  @include tablet {
+    .partners__wrapper {
+
+      .partners-card {
+        min-height: 120px;
+
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+  @include laptop {
+    .partners__wrapper {
+      grid-template-columns: repeat(4, minmax(256px, 1fr));
+    }
+  }
+}
+
+.publications-section {
+  padding-top: 30px;
+  background-color: $separator-color;
+
+  h2 {
+    font-size: 30px;
+    padding-bottom: 30px;
+    line-height: normal;
+  }
+
+  .cards__wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(315px, 1fr));
+    gap: 30px 0;
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      color: #000000;
+      background-color: $grey-bg;
+      border-radius: 7px;
+
+      img {
+        width: 100%;
+      }
+
+      h4 {
+        color: $btn-regular-color;
+        padding: 15px 30px 0;
+      }
+
+      p:first-of-type {
+        color: $text-color;
+        font-weight: 700;
+        max-width: 255px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        line-height: normal;
+        padding: 0 30px;
+        position: relative;
+      }
+
+      h4 + p:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        background-color: $separator-color;
+        top: 28px;
+        left: 30px;
+      }
+
+      p {
+        padding: 15px 30px 30px 30px;
+        line-height: 22px;
+      }
+    }
+  }
+
+  @include tablet {
+    h2 {
+      font-size: 38px;
+    }
+    .cards__wrapper {
+      grid-template-columns: repeat(2, minmax(315px, 1fr));
+      grid-template-rows: 514px 388px;
+
+      img {
+        min-height: 200px;
+        object-fit: cover;
+      }
+
+      .card-1 {
+        margin-right: 15px;
+
+        img {
+          min-height: 200px;
+        }
+      }
+
+      .card-2 {
+        margin-left: 15px;
+      }
+
+      .card-3 {
+        grid-column: 1/4;
+
+        img {
+          height: 200px;
+        }
+
+        p:first-of-type {
+          max-width: 588px;
+        }
+      }
+    }
+  }
+  @include large {
+    .cards__wrapper {
+      grid-template-columns: repeat(3, minmax(281px, 513px));
+      grid-template-rows: 1fr;
+      gap: 30px;
+
+      .cards {
+        max-height: 586px;
+
+        p:first-of-type {
+          max-width: 221px;
+        }
+      }
+
+      .card-1 {
+        margin-right: 0;
+
+        img {
+          min-height: 200px;
+        }
+      }
+
+      .card-2 {
+        margin-left: 0;
+      }
+
+      .card-3 {
+        grid-column: unset;
+      }
+    }
+  }
+  @include laptop {
+    .cards__wrapper {
+      .cards {
+        p:first-of-type {
+          max-width: 300px;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: $separator-color;
+  padding: 30px 0;
+
+  .footer__content {
+    border-top: 2px solid rgba(179, 179, 186, 0.53);
+    @include flex-column;
+    text-align: center;
+
+    .footer__text {
+      ul {
+        list-style-type: none;
+        font-size: 16px;
+        color: $main-color;
+      }
+
+      ul:first-of-type {
+        padding-top: 30px;
+
+        .link {
+          font-size: 12px;
+        }
+      }
+
+      ul:last-of-type {
+        padding-top: 21px;
+        padding-bottom: 30px;
+
+        li {
+          display: block;
+          font-weight: 700;
+          color: $main-color-alt;
+        }
+
+        .email {
+          color: $btn-regular-color;
+        }
+      }
+
+      .footer-ico {
+        display: block;
+
+        svg {
+          width: 38px;
+          height: 38px;
+          color: $btn-regular-color;
+        }
+      }
+    }
+
+    .footer__llc {
+      p {
+        color: $text-color;
+      }
+    }
+  }
+
+  @include tablet {
+    .footer__content {
+      flex-direction: row;
+
+      .footer__text {
+        display: flex;
+        flex-direction: column;
+
+        ul {
+          display: flex;
+          gap: 0 13px;
+
+          li:nth-of-type(2) {
+            position: relative;
+
+            :before {
+              content: "\2022";
+              position: absolute;
+              font-size: 25px;
+              top: -2.6px;
+              left: -10px;
+              color: $text-color;
+            }
+          }
+        }
+
+        ul:last-of-type {
+          align-items: center;
+          padding-bottom: 0;
+
+          li:first-of-type {
+            :hover {
+              color: $accent-color;
+            }
+          }
+
+          li:last-of-type {
+            position: relative;
+
+            :before {
+              content: "\2022";
+              position: absolute;
+              font-size: 25px;
+              top: -2.6px;
+              left: -10px;
+              color: $text-color;
+            }
+
+            :hover {
+              color: $accent-color;
+            }
+          }
+        }
+      }
+
+      .footer__llc {
+        p {
+          padding-top: 30px;
+        }
+      }
+    }
+  }
+  @include large {
+    .footer__content {
+      .footer__text {
+        ul {
+          gap: 0 25px;
+
+          li:nth-of-type(2) {
+            :before {
+              top: -3px;
+              left: -17px;
+            }
+          }
+        }
+
+        ul:last-of-type {
+          li:last-of-type {
+            :before {
+              top: -3px;
+              left: -17px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 
 
 
