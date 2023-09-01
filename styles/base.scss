@@ -17,7 +17,7 @@ $separator-color: #E6E6F0;
 $gradient-text-regular: linear-gradient(135deg, #323264 0%, #323264 73.96%, #A54B5F 100%);
 $gradient-text-soft: linear-gradient(23deg, #323264 0%, #323264 50.63%, #7A425E 100%);
 $gradient-text-red: linear-gradient(310deg, #F0145A 0%, #693264 100%);
-$gradient-text-supersoft: linear-gradient(208deg, #323264 0%, #323264 59.90%, #643E72 100%);
+$gradient-text-supersoft: linear-gradient(229deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%);
 $gradient-text-redtext: linear-gradient(118deg, #F0145A 0%, #EF8080 100%);
 
 $small-tablet: 576;
@@ -28,7 +28,6 @@ $laptop: 1200;
 @mixin flex-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 @mixin flex-center {
@@ -67,6 +66,15 @@ $laptop: 1200;
   }
 }
 
+.wrapper {
+  min-height: 100%;
+  @include flex-column;
+}
+
+.page {
+  flex: 1 1 auto;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -77,25 +85,6 @@ body {
   overflow-x: hidden;
 }
 
-.container {
-  max-width: 375px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 30px;
-  @include small-tablet {
-    max-width: 576px;
-    padding: 0 60px;
-  }
-  @include tablet {
-    max-width: 768px;
-  }
-  @include large {
-    max-width: 1024px;
-  }
-  @include laptop {
-    max-width: 1320px;
-  }
-}
 
 .gradient-text-v1 {
   background: $gradient-text-redtext;
@@ -107,7 +96,7 @@ body {
 .link {
   text-transform: uppercase;
   font-family: Montserrat, sans-serif;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   line-height: normal;
@@ -145,7 +134,31 @@ h4 {
   z-index: 2;
 }
 
-.menu {
+.gradient-background {
+  background: linear-gradient(228deg, #323264 19.93%, #323264 56.17%, #643E72 85.96%), center/contain, no-repeat;
+}
+
+[class*="_container"] {
+  max-width: 375px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  @include small-tablet {
+    max-width: 576px;
+    padding: 0 60px;
+  }
+  @include tablet {
+    max-width: 768px;
+  }
+  @include large {
+    max-width: 1024px;
+  }
+  @include laptop {
+    max-width: 1320px;
+  }
+}
+
+.header {
   &__container {
     display: flex;
     justify-content: space-between;
@@ -187,20 +200,24 @@ h4 {
   }
 
   &__contacts-list {
-    > li {
-      display: none;
-    }
+    ul {
+      > li {
+        display: none;
+      }
 
-    > li:nth-of-type(2) {
-      display: block;
-      font-size: 16px;
+      > li:nth-of-type(2) {
+        display: block;
+        font-size: 16px;
+      }
     }
   }
 
   &__hamburger {
     align-content: center;
-    max-height: 90px;
+    max-height: 82px;
     @include flex-center-vert;
+    align-items: initial;
+    gap: 150px;
 
     .checkbox {
       display: none;
@@ -212,10 +229,10 @@ h4 {
     .hamburger-lines {
       height: 15px;
       width: 21px;
-      position: absolute;
-      top: 65px;
-      right: 20px;
+      position: static;
+      align-self: flex-end;
       z-index: 2;
+      gap: 3px;
       @include flex-column;
     }
 
@@ -226,20 +243,12 @@ h4 {
       background: $white;
     }
 
-    .line1 {
-      transform-origin: 0 0;
-    }
-
-    .line3 {
-      transform-origin: 0 100%;
-    }
-
     .ham-label {
       position: absolute;
       width: 32px;
       height: 32px;
-      top: 65px;
-      right: 20px;
+      top: 66px;
+      right: 21px;
       z-index: 3;
     }
 
@@ -291,17 +300,22 @@ h4 {
   &__logo {
     display: flex;
     align-items: center;
-    gap: 4px;
-    margin-bottom: 36px;
-    margin-top: 90px;
+    gap: 2.5px;
+    margin-bottom: 20px;
+    margin-top: 79px;
 
     p {
       font-size: 20px;
+      padding-bottom: 14px;
       color: $white;
       font-weight: 400;
     }
 
     .logo-m {
+      display: none;
+    }
+
+    .slash-m {
       display: none;
     }
   }
@@ -315,41 +329,32 @@ h4 {
       justify-content: flex-start;
     }
     &__contacts-list {
-      display: flex;
-      margin-left: 25px;
-      gap: 15px;
+      ul {
+        display: flex;
+        margin-left: 25px;
+        gap: 15px;
+        align-items: center;
 
-      > li:nth-of-type(2) {
-        position: relative;
-        top: -2px;
-
-        :before {
-          content: "\2022";
-          position: absolute;
-          font-size: 25px;
-          left: -15px;
-          top: -2px;
+        > li {
+          display: inline-block;
+          font-size: 14px;
+          margin-left: 4px;
+          position: relative;
         }
-      }
 
-      > li {
-        display: inline-block;
-        font-size: 14px;
-        margin-left: 4px;
-        position: relative;
-
-        ::before {
-          content: "\2022";
-          left: -14px;
-          top: -4px;
+        li:before {
+          content: url(../images/circle-solid.svg);
           position: absolute;
-          font-weight: 700;
-          font-size: 25px;
+          width: 6px;
+          left: -15px;
+          top: -3px;
         }
 
         a {
           font-size: 14px;
+          display: block;
           font-weight: 700;
+          height: 26px;
         }
 
         a:hover {
@@ -357,24 +362,14 @@ h4 {
             color: $accent-color;
           }
         }
-      }
 
-      .address {
-        color: $text-color;
-        font-weight: 400;
-      }
-
-      .address::before {
-        content: "\2022";
-        color: $white;
-        position: absolute;
-        left: -14px;
-        top: -4px;
-        font-weight: 700;
-        font-size: 27px;
+        .address {
+          color: $text-color;
+          font-weight: 400;
+        }
       }
     }
-    .slash {
+    .slash-s {
       display: none;
     }
     p {
@@ -395,7 +390,7 @@ h4 {
         display: none;
       }
     }
-    .menu-items {
+    .header-items {
       display: flex;
       flex-direction: row;
       list-style-type: none;
@@ -404,12 +399,16 @@ h4 {
       background-color: transparent;
       gap: 15px;
       padding: 0;
+      height: 25px;
+      align-items: center;
 
       li:first-of-type {
         display: none;
       }
 
       li {
+        height: 25px;
+
         a {
           background-color: transparent;
           color: $white;
@@ -428,13 +427,7 @@ h4 {
         }
       }
     }
-    .tablet__container {
-      max-width: 576px;
-      padding: 0 60px;
-      margin: 0 auto;
-    }
   }
-
 
   @include tablet {
     &__contacts {
@@ -448,27 +441,33 @@ h4 {
     }
     &__contacts-list {
       height: 20px;
-      margin-left: 8px;
+      margin-left: 0;
 
-      > li {
-        font-size: 16px;
-        margin-left: 9px;
-        padding-left: 5px;
+      ul {
+        align-items: normal;
+        margin-left: 7px;
 
-        ::before {
-          content: "\2022";
-          left: -10px;
-          font-weight: 700;
-          font-size: 24px;
+        > li {
+          font-size: 16px;
+          padding-left: 5px;
+
+          a {
+            font-size: 16px;
+          }
         }
 
-        .facebook-ico::before {
-          top: -5px;
+        li:before {
+          left: -6.5px;
         }
-      }
 
-      a {
-        font-size: 16px;
+        li:last-of-type {
+          padding-left: 0;
+
+          &:before {
+            left: -12.5px;
+          }
+        }
+
       }
     }
     &__logo {
@@ -483,20 +482,20 @@ h4 {
       }
     }
 
-    .menu-items {
-      padding: 10px 0 0 0;
-      gap: 15px;
+    .header-items {
+      padding: 40px 0 0 0;
+      gap: 16px;
+      height: 20px;
+      max-width: 420px;
+      width: 100%;
 
       li {
+        margin-top: 0;
+
         a {
           font-size: 16px;
         }
       }
-    }
-    .tablet__container {
-      max-width: 768px;
-      padding: 0 60px;
-      margin: 0 auto;
     }
   }
 
@@ -506,46 +505,36 @@ h4 {
       display: flex;
       justify-content: flex-end;
       padding: 0 60px;
-    }
-    &__lang-btn {
-      gap: 5px;
-    }
-    &__contacts-list {
-      margin-left: 15px;
       position: relative;
+    }
+    &__logo {
+      margin-top: 0;
+      position: absolute;
+      top: -35px;
+      left: 5.5%;
+    }
+
+    &__contacts-list {
       color: $white;
+
+      ul {
+        margin-left: 8px;
+      }
 
       .address {
         color: $white;
         font-size: 16px;
-
-        :before {
-          left: -20px;
-        }
-      }
-    }
-    &__logo {
-      margin-top: 0;
-
-      .logo-m {
-        position: absolute;
-        top: 50px;
-        left: 6%;
       }
     }
 
-    .tablet__container {
-      max-width: 1024px;
-      margin: 0 auto;
-    }
-
-    .menu-items {
+    .header-items {
       justify-content: flex-end;
-      margin-top: -15px;
-      padding-top: 0;
+      margin-top: 0;
+      padding-top: 10px;
       width: 100%;
     }
   }
+
   @include laptop {
     &__container {
       max-width: 1320px;
@@ -557,22 +546,21 @@ h4 {
     &__contacts-list {
       margin-left: 5px;
     }
+
     &__logo {
       .logo-m {
         left: 4%;
       }
     }
-    .tablet__container {
-      max-width: 1320px;
-      padding: 0 60px;
-      margin: 0 auto;
+    .menu-items {
+      padding-top: 30px;
     }
   }
 }
 
+
 .services-section {
-  background: $gradient-text-supersoft, center center/cover, no-repeat;
-  border-radius: 0 0 20px 20px;
+  background: linear-gradient(242deg, #323264 42.98%, #323264 1.17%, #643E72 94.46%), center/contain, no-repeat;
   padding: 0 15px;
 
   .services__heading {
@@ -581,8 +569,8 @@ h4 {
     }
 
     h2 {
-      line-height: normal;
-      padding-bottom: 30px;
+      line-height: 42px;
+      padding-bottom: 26px;
     }
   }
 
@@ -596,13 +584,14 @@ h4 {
         background-color: $white;
         padding: 14px;
         border-radius: 24px;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
       }
 
       h3 {
         color: $btn-regular-color;
-        margin-bottom: 15px;
+        margin-bottom: 14px;
         line-height: normal;
+        max-width: 300px;
       }
 
       p {
@@ -613,15 +602,16 @@ h4 {
 
       &:last-child {
         img {
-          padding: 23px;
+          padding: 22px;
         }
       }
     }
   }
 
   @include tablet {
+    padding: 0;
     .container {
-      padding: 0 50px;
+      padding: 0 60px;
     }
     .services__heading {
       a {
@@ -633,24 +623,34 @@ h4 {
         font-size: 38px;
         line-height: normal;
         padding-bottom: 60px;
-        margin-top: -15px;
+        margin-top: -20px;
       }
     }
     .grid-wrapper {
-      gap: 0 60px;
+      gap: 30px 60px;
     }
   }
   @include large {
     .services__heading {
-      padding-top: 77px;
+      padding-top: 20px;
     }
     .grid-wrapper {
       grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
       min-height: 800px;
+      gap: 0px 60px;
+
+      .services__item {
+        h3 {
+          font-size: 22px;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 26px;
+        }
+      }
     }
-    p {
-      line-height: 26px;
-    }
+
   }
   @include laptop {
     .grid-wrapper {
@@ -666,7 +666,6 @@ h4 {
 
 .partners-section {
   background-color: $white;
-  padding-top: 30px;
 
   h3 {
     color: $main-color;
@@ -676,6 +675,7 @@ h4 {
     font-size: 14px;
     text-align: center;
     padding-bottom: 30px;
+    padding-top: 15px;
   }
 
   .partners__wrapper {
@@ -685,7 +685,8 @@ h4 {
     .partners-card {
       img {
         display: block;
-        width: 100%
+        width: 100%;
+        max-height: 120px;
       }
     }
 
@@ -722,13 +723,62 @@ h4 {
   }
 }
 
+.services-bottom {
+  background: linear-gradient(1deg, #323264 6.93%, #323264 23.17%, #643E72 72.46%);
+  height: 30px;
+  border-radius: 0px 0px 12px 12px;
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 89%;
+    height: 10px;
+    top: 30px;
+    border-radius: 0px 0px 12px 12px;
+    background: #CACADB;
+    right: 21px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 79%;
+    height: 10px;
+    top: 40px;
+    border-radius: 0px 0px 12px 12px;
+    background: #E7E7F2;
+    right: 39px;
+  }
+
+  @include small-tablet {
+    background: linear-gradient(348deg, #323264 -5.07%, #323264 -0.83%, #643E72 57.46%);
+  }
+  @include tablet {
+    background: linear-gradient(349deg, #323264 34%, #323264 20.17%, #643E72 71.46%);
+    &:before {
+      width: 94%;
+      right: 23px;
+    }
+    &:after {
+      width: 90%;
+    }
+  }
+  @include laptop {
+    background: linear-gradient(-15deg, #323264 33.93%, #323264 15.17%, #643E72 88.46%);
+  }
+}
+
+
 .publications-section {
-  padding-top: 30px;
+  padding: 30px 0 0;
   background-color: $separator-color;
 
   h2 {
     font-size: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
     line-height: normal;
   }
 
@@ -740,18 +790,21 @@ h4 {
     .cards {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 13px;
       color: #000000;
       background-color: $grey-bg;
       border-radius: 7px;
 
       img {
         width: 100%;
+        height: 200px;
+        object-fit: cover;
       }
 
       h4 {
         color: $btn-regular-color;
         padding: 15px 30px 0;
+        line-height: 22px;
       }
 
       p:first-of-type {
@@ -777,8 +830,9 @@ h4 {
       }
 
       p {
-        padding: 15px 30px 30px 30px;
+        padding: 23px 30px 30px 30px;
         line-height: 22px;
+        font-size: 14px;
       }
     }
   }
@@ -880,7 +934,7 @@ h4 {
       }
 
       ul:first-of-type {
-        padding-top: 30px;
+        padding-top: 25px;
 
         .link {
           font-size: 12px;
@@ -888,8 +942,8 @@ h4 {
       }
 
       ul:last-of-type {
-        padding-top: 21px;
-        padding-bottom: 30px;
+        padding-top: 20px;
+        padding-bottom: 25px;
 
         li {
           display: block;
@@ -949,6 +1003,7 @@ h4 {
         ul:last-of-type {
           align-items: center;
           padding-bottom: 0;
+          padding-top: 15px;
 
           li:first-of-type {
             :hover {
@@ -977,13 +1032,15 @@ h4 {
 
       .footer__llc {
         p {
-          padding-top: 30px;
+          padding-top: 25px;
         }
       }
     }
   }
   @include large {
     .footer__content {
+      justify-content: space-between;
+
       .footer__text {
         ul {
           gap: 0 25px;
@@ -1008,6 +1065,163 @@ h4 {
     }
   }
 }
+
+.light-header {
+  .light-contacts {
+    background-color: $grey-bg;
+    color: $text-color;
+
+    .light-btn {
+      button {
+        color: $text-color;
+
+        &:last-of-type {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .logo-light {
+    gap: 1.5px;
+  }
+
+  svg {
+    color: $main-color;
+  }
+
+  p {
+    color: $main-color;
+    padding-bottom: 0;
+    width: 88px;
+  }
+
+  .lines-black {
+    .line {
+      background-color: $main-color;
+    }
+  }
+
+  @include small-tablet {
+    .light-contacts {
+      background-color: transparent;
+
+      .light-header__contacts-list {
+        ul {
+          > li:before {
+            content: url(../images/circle-solid-v2.svg);
+            position: absolute;
+            width: 6px;
+            left: -6.5px;
+            top: -3px;
+          }
+
+          li:last-of-type {
+            padding-left: 0;
+
+            &:before {
+              left: -12.5px;
+            }
+          }
+        }
+      }
+
+      svg {
+        color: $text-color;
+      }
+    }
+
+    p {
+      display: inline-block;
+      font-size: 36px;
+      width: 160px;
+    }
+    .header__hamburger {
+      .logo-light {
+        gap: 5.5px;
+
+        .slash-s {
+          display: none;
+        }
+
+        .slash-m {
+          display: inline-block;
+        }
+      }
+
+      .light-header-items {
+        color: $btn-regular-color;
+        font-size: 16px;
+        width: 100%;
+
+        li {
+          margin-top: 0;
+        }
+
+        a {
+          color: $btn-regular-color;
+          font-size: 14px;
+        }
+      }
+    }
+
+
+    @include tablet {
+      .light-contacts {
+        .light-header__contacts-list {
+          color: $text-color;
+        }
+      }
+      svg {
+        color: $main-color;
+      }
+
+      .light-header-items {
+        a {
+          font-size: 16px;
+        }
+
+      }
+    }
+    @include large {
+      .light-header {
+        .slash-s {
+          display: none;
+        }
+
+        p {
+          display: none;
+        }
+
+        .light-contacts {
+          ul li {
+            color: $text-color;
+          }
+
+          color: $text-color;
+
+          svg {
+            color: $text-color;
+          }
+        }
+
+        .light-header-items {
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
 
 
 
