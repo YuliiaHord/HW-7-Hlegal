@@ -67,7 +67,7 @@ $laptop: 1200;
 }
 
 .wrapper {
-  min-height: 100%;
+  min-height: 100vh;
   @include flex-column;
 }
 
@@ -637,7 +637,7 @@ h4 {
     .grid-wrapper {
       grid-template-columns: repeat(auto-fit, minmax(257px, 1fr));
       min-height: 800px;
-      gap: 0px 60px;
+      gap: 0 60px;
 
       .services__item {
         h3 {
@@ -726,7 +726,7 @@ h4 {
 .services-bottom {
   background: linear-gradient(1deg, #323264 6.93%, #323264 23.17%, #643E72 72.46%);
   height: 30px;
-  border-radius: 0px 0px 12px 12px;
+  border-radius: 0 0 12px 12px;
   position: relative;
 
   &:before {
@@ -736,7 +736,7 @@ h4 {
     width: 89%;
     height: 10px;
     top: 30px;
-    border-radius: 0px 0px 12px 12px;
+    border-radius: 0 0 12px 12px;
     background: #CACADB;
     right: 21px;
   }
@@ -748,7 +748,7 @@ h4 {
     width: 79%;
     height: 10px;
     top: 40px;
-    border-radius: 0px 0px 12px 12px;
+    border-radius: 0 0 12px 12px;
     background: #E7E7F2;
     right: 39px;
   }
@@ -1161,10 +1161,12 @@ h4 {
         a {
           color: $btn-regular-color;
           font-size: 16px;
-          &:hover{
+
+          &:hover {
             border-bottom: 2px solid $btn-regular-color;
           }
-          &:active{
+
+          &:active {
             border-bottom: 2px solid $accent-color;
           }
         }

@@ -109,6 +109,7 @@ html {
     background-color: transparent;
     border: none;
     padding: 0;
+    min-height: 100%;
 
     ul {
       font-family: "Montserrat", sans-serif;
@@ -174,7 +175,7 @@ html {
         li {
           a {
             font-size: 38px;
-            padding: 54px 20px 60px 0px;
+            padding: 54px 20px 60px 0;
           }
         }
       }
@@ -731,6 +732,7 @@ html {
     grid-template-columns: 1fr;
     gap: 30px;
     justify-content: center;
+
     .grid-item {
       height: 362px;
       width: 315px;
@@ -754,13 +756,15 @@ html {
           line-height: 22px;
         }
       }
-      &__link{
-        svg{
+
+      &__link {
+        svg {
           color: base.$btn-regular-color;
           transition: color 0.2s linear;
         }
-        a:hover{
-          svg{
+
+        a:hover {
+          svg {
             color: base.$accent-color;
             opacity: 0.7;
           }
@@ -782,9 +786,10 @@ html {
   @include base.small-tablet {
     padding: 180px 0 0;
     .team-page__grid {
-      .grid-item{
+      .grid-item {
         width: 450px;
-        img{
+
+        img {
           object-fit: cover;
         }
       }
@@ -804,7 +809,8 @@ html {
     .team-page__grid {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr 1fr;
-      gap:60px;
+      gap: 60px;
+
       .grid-item {
         height: 462px;
         width: 294px;
@@ -817,10 +823,10 @@ html {
       }
     }
   }
-  @include base.large{
+  @include base.large {
     padding: 180px 0 0;
 
-    h1{
+    h1 {
       max-width: 664px;
       margin: 0 auto;
     }
@@ -828,18 +834,20 @@ html {
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 75px 60px;
+
       .grid-item {
         width: 261px;
       }
+
       &:last-child {
         padding-bottom: 57px;
       }
     }
   }
-  @include base.laptop{
+  @include base.laptop {
     padding: 180px 0 0;
 
-    h1{
+    h1 {
       max-width: 1080px;
     }
     .team-page__grid {
@@ -847,12 +855,152 @@ html {
         max-width: 400px;
         width: 100%;
       }
+
       &:last-child {
         padding-bottom: 57px;
       }
+    }
   }
 }
+
+
+.worker__page {
+  padding: 130px 15px 30px;
+
+  .worker__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .worker__image {
+    max-height: 375px;
+    margin: auto;
+
+    img {
+      max-width: 300px;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .worker__info {
+    h1 {
+      padding-bottom: 9px;
+      line-height: 59px;
+    }
+
+    ul {
+      color: base.$main-color;
+      list-style-type: none;
+
+      li {
+        color: base.$btn-regular-color;
+        line-height: 35px;
+      }
+
+      li:first-of-type {
+        color: base.$text-color;
+        font-size: 14px;
+        line-height: 22px;
+      }
+
+      a:hover {
+        color: base.$accent-color;
+      }
+    }
+  }
+
+  .worker__text {
+    border-top: 4px solid base.$separator-color;
+
+    p {
+      color: black;
+      font-size: 16px;
+      line-height: 26px;
+    }
+
+    p:first-of-type {
+      padding-top: 25px;
+    }
+
+    h3 {
+      text-transform: uppercase;
+      color: base.$main-color;
+      font-size: 14px;
+      padding: 15px 0;
+    }
+  }
+
+  @include base.small-tablet {
+    padding-top: 180px;
+  }
+  @include base.tablet {
+    padding: 280px 0 60px;
+    .worker__container {
+      grid-template-columns: 1fr 1fr;
+      gap: 30px 15px;
+    }
+    .worker__text {
+      grid-column: 1/4;
+    }
+    .worker__info {
+      h1 {
+        padding-top: 110px;
+        padding-left: 5px;
+      }
+
+      ul {
+        padding-left: 6px;
+      }
+    }
+  }
+  @include base.large {
+    padding-top: 180px;
+    .worker__container {
+      grid-template-columns: 1fr 1.5fr;
+    }
+    .worker__image {
+      grid-row: span 2;
+      margin: 0;
+    }
+    .worker__text {
+      grid-column: 2 / 4;
+    }
+    .worker__info {
+      grid-column: 2 / 4;
+
+      h1 {
+        padding-top: 0;
+      }
+    }
+  }
+  @include base.laptop {
+    .worker__image {
+      max-height: 500px;
+
+      img {
+        max-width: 400px;
+      }
+    }
+    .worker__info {
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        li:not(li:first-of-type) {
+          list-style-type: disc;
+        }
+
+        li::marker {
+          color: base.$separator-color;
+        }
+      }
+    }
+  }
 }
+
 
 
 
