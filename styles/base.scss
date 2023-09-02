@@ -136,7 +136,46 @@ h4 {
 
 .gradient-background {
   background: linear-gradient(228deg, #323264 19.93%, #323264 56.17%, #643E72 85.96%), center/contain, no-repeat;
-}
+  border-radius: 0 0 12px 12px;
+  position: relative;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 89%;
+      height: 10px;
+      bottom: -10px;
+      border-radius: 0 0 12px 12px;
+      background: #CACADB;
+      right: 21px;
+    }
+    &:after{
+      content: "";
+      display: block;
+      position: absolute;
+      width: 79%;
+      height: 10px;
+      bottom: -20px;
+      right: 10%;
+      border-radius: 0 0 12px 12px;
+      background-color: #E7E7F2;
+    }
+  @include small-tablet{
+    &:before {
+      right: 7%;
+    }
+  }
+    @include tablet{
+      &:before {
+        width: 94%;
+        right: 3%;
+      }
+      &:after {
+        width: 90%;
+        right: 5%;
+      }
+    }
+  }
 
 [class*="_container"] {
   max-width: 375px;
@@ -560,7 +599,6 @@ h4 {
 
 
 .services-section {
-  background: linear-gradient(242deg, #323264 42.98%, #323264 1.17%, #643E72 94.46%), center/contain, no-repeat;
   padding: 0 15px;
 
   .services__heading {
@@ -597,7 +635,7 @@ h4 {
       p {
         font-size: 16px;
         line-height: 26px;
-        margin-bottom: 30px;
+        margin-bottom: 60px;
       }
 
       &:last-child {
@@ -722,55 +760,6 @@ h4 {
     }
   }
 }
-
-.services-bottom {
-  background: linear-gradient(1deg, #323264 6.93%, #323264 23.17%, #643E72 72.46%);
-  height: 30px;
-  border-radius: 0 0 12px 12px;
-  position: relative;
-
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 89%;
-    height: 10px;
-    top: 30px;
-    border-radius: 0 0 12px 12px;
-    background: #CACADB;
-    right: 21px;
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 79%;
-    height: 10px;
-    top: 40px;
-    border-radius: 0 0 12px 12px;
-    background: #E7E7F2;
-    right: 39px;
-  }
-
-  @include small-tablet {
-    background: linear-gradient(348deg, #323264 -5.07%, #323264 -0.83%, #643E72 57.46%);
-  }
-  @include tablet {
-    background: linear-gradient(349deg, #323264 34%, #323264 20.17%, #643E72 71.46%);
-    &:before {
-      width: 94%;
-      right: 23px;
-    }
-    &:after {
-      width: 90%;
-    }
-  }
-  @include laptop {
-    background: linear-gradient(-15deg, #323264 33.93%, #323264 15.17%, #643E72 88.46%);
-  }
-}
-
 
 .publications-section {
   padding: 30px 0 0;
