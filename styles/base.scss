@@ -1160,7 +1160,13 @@ h4 {
 
         a {
           color: $btn-regular-color;
-          font-size: 14px;
+          font-size: 16px;
+          &:hover{
+            border-bottom: 2px solid $btn-regular-color;
+          }
+          &:active{
+            border-bottom: 2px solid $accent-color;
+          }
         }
       }
     }
