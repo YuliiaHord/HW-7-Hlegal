@@ -79,7 +79,7 @@
 							<use href="./sprite.svg#cross" width="32" height="32"/>
 						</svg>
 					</li>
-					<li><a href="./pages/about.html" target="_blank">about us</a></li>
+					<li><a href="./pages/about.html">about us</a></li>
 					<li><a href="#">services</a></li>
 					<li><a href="./pages/team.html">team</a></li>
 					<li><a href="#">publications</a></li>
@@ -347,16 +347,17 @@
 	$(document).ready(function () {
 		$(".ham-btn").click(function () {
 			$(".header-items").hide();
+			$("body").removeClass("menu-open");
 		});
-	});
-	$(document).ready(function () {
 		$(".ham-label").click(function () {
 			$(".header-items").show();
+			$("body").addClass("menu-open");
+		});
+		$(function () {
+			$("#tabs").tabs();
 		});
 	});
-	$(function () {
-		$("#tabs").tabs();
-	});
+	
 	$(document).ready(function () {
 		$('.team__slider').slick({
 			slidesToShow: 1,

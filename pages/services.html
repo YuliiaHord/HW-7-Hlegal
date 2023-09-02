@@ -43,12 +43,12 @@
 		<div class="header__container">
 			<div class="header__hamburger">
 				<div class="header__logo">
-					<a href="./index.html">
+					<a href="../index.html">
 						<svg width="70" height="73" class="logo-s">
 							<use href="../sprite.svg#logo-s" width="70" height="73"/>
 						</svg>
 					</a>
-					<a href="./index.html">
+					<a href="../index.html">
 						<svg width="130" height="60" class="logo-m">
 							<use href="../sprite.svg#logo-m" width="130" height="60"/>
 						</svg>
@@ -74,9 +74,9 @@
 							<use href="../sprite.svg#cross" width="32" height="32"/>
 						</svg>
 					</li>
-					<li><a href="./pages/about.html" target="_blank">about us</a></li>
-					<li><a href="#">services</a></li>
-					<li><a href="./pages/team.html">team</a></li>
+					<li><a href="./about.html">about us</a></li>
+					<li><a href="./service.html">services</a></li>
+					<li><a href="./team.html">team</a></li>
 					<li><a href="#">publications</a></li>
 					<li><a href="#">contact</a></li>
 				</ul>
@@ -204,25 +204,14 @@
 	</footer>
 </div>
 <script>
-	AOS.init();
 	$(document).ready(function () {
 		$(".ham-btn").click(function () {
 			$(".header-items").hide();
+			$("body").removeClass("menu-open");
 		});
-	});
-	$(document).ready(function () {
 		$(".ham-label").click(function () {
 			$(".header-items").show();
-		});
-	});
-	$(function () {
-		$("#tabs").tabs();
-	});
-	$(document).ready(function () {
-		$('.team__slider').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			dots: true,
+			$("body").addClass("menu-open");
 		});
 	});
 </script>

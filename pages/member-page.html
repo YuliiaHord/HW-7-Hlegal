@@ -79,7 +79,7 @@
 						</svg>
 					</li>
 					<li><a href="../pages/about.html">about us</a></li>
-					<li><a href="#">services</a></li>
+					<li><a href="../pages/services.html">services</a></li>
 					<li><a href="../pages/team.html">team</a></li>
 					<li><a href="#">publications</a></li>
 					<li><a href="#">contact</a></li>
@@ -147,11 +147,11 @@
 	$(document).ready(function () {
 		$(".ham-btn").click(function () {
 			$(".header-items").hide();
+			$("body").removeClass("menu-open");
 		});
-	});
-	$(document).ready(function () {
 		$(".ham-label").click(function () {
 			$(".header-items").show();
+			$("body").addClass("menu-open");
 		});
 	});
 </script>
