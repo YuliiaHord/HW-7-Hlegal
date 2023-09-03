@@ -84,7 +84,8 @@ body {
   position: relative;
   overflow-x: hidden;
 }
-.menu-open{
+
+.menu-open {
   overflow: hidden;
 }
 
@@ -141,44 +142,47 @@ h4 {
   background: linear-gradient(228deg, #323264 19.93%, #323264 56.17%, #643E72 85.96%), center/contain, no-repeat;
   border-radius: 0 0 12px 12px;
   position: relative;
-    &:before {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 89%;
-      height: 10px;
-      bottom: -10px;
-      border-radius: 0 0 12px 12px;
-      background: #CACADB;
-      right: 21px;
-    }
-    &:after{
-      content: "";
-      display: block;
-      position: absolute;
-      width: 79%;
-      height: 10px;
-      bottom: -20px;
-      right: 10%;
-      border-radius: 0 0 12px 12px;
-      background-color: #E7E7F2;
-    }
-  @include small-tablet{
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 89%;
+    height: 10px;
+    bottom: -10px;
+    border-radius: 0 0 12px 12px;
+    background: #CACADB;
+    right: 21px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 79%;
+    height: 10px;
+    bottom: -20px;
+    right: 10%;
+    border-radius: 0 0 12px 12px;
+    background-color: #E7E7F2;
+  }
+
+  @include small-tablet {
     &:before {
       right: 7%;
     }
   }
-    @include tablet{
-      &:before {
-        width: 94%;
-        right: 3%;
-      }
-      &:after {
-        width: 90%;
-        right: 5%;
-      }
+  @include tablet {
+    &:before {
+      width: 94%;
+      right: 3%;
+    }
+    &:after {
+      width: 90%;
+      right: 5%;
     }
   }
+}
 
 [class*="_container"] {
   max-width: 375px;
@@ -1070,7 +1074,8 @@ h4 {
         &:last-of-type {
           color: $white;
         }
-        &:hover{
+
+        &:hover {
           background-color: $grey-bg;
         }
       }
@@ -1178,15 +1183,17 @@ h4 {
       svg {
         color: $main-color;
       }
-      .header__hamburger{
+      .header__hamburger {
         .logo-light {
           .slash-s {
             display: none;
           }
-          .slash-m{
+
+          .slash-m {
             display: inline-block
           }
-          p{
+
+          p {
             font-size: 36px;
           }
         }

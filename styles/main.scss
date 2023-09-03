@@ -708,7 +708,7 @@ html {
     }
   }
   @include base.laptop {
-    .about__container{
+    .about__container {
       padding: 0 15px;
     }
     .slick-slider {
@@ -1003,6 +1003,7 @@ html {
     }
   }
 }
+
 .publication-page {
   padding: 100px 0 0;
 
@@ -1028,7 +1029,8 @@ html {
 
         li.ui-tabs-active {
           background-color: base.$separator-color;
-          &:hover{
+
+          &:hover {
             background-color: base.$separator-color;
           }
         }
@@ -1038,9 +1040,11 @@ html {
           margin: 0;
           background: base.$white;
           border-radius: 12px;
-          &:hover{
+
+          &:hover {
             background-color: base.$grey-bg;
           }
+
           a {
             display: block;
             padding: 10px 30px;
@@ -1066,6 +1070,7 @@ html {
       }
     }
   }
+
   button {
     display: block;
     color: base.$white;
@@ -1077,48 +1082,56 @@ html {
     font-weight: 700;
     background: base.$btn-regular-color;
     box-shadow: 0 0 20px 0 rgba(36, 163, 255, 0.50);
-    &:hover{
+
+    &:hover {
       transition: color 0.7s linear;
       box-shadow: 0 0 20px 0 white;
       cursor: pointer;
       opacity: 0.9;
     }
   }
-  @include base.small-tablet{
+
+  @include base.small-tablet {
     padding-top: 180px;
   }
-  @include base.tablet{
+  @include base.tablet {
     padding-top: 275px;
-    #publications__tabs{
-      .cards__wrapper{
+    #publications__tabs {
+      .cards__wrapper {
         grid-template-columns: repeat(2, 310px);
         grid-template-rows: repeat(3, 514px);
         gap: 30px;
-        .cards{
-          min-height: 514px ;
+
+        .cards {
+          min-height: 514px;
         }
-        .card-1{
+
+        .card-1 {
           margin-right: 0;
         }
-        .card-2{
+
+        .card-2 {
           margin-left: 0;
         }
-        .card-3{
+
+        .card-3 {
           grid-column: 1/2;
-          h4+p:after{
+
+          h4 + p:after {
             width: 83%;
           }
         }
       }
     }
   }
-  @include base.large{
+  @include base.large {
     padding-top: 173px;
-    #publications__tabs{
-      .cards__wrapper{
+    #publications__tabs {
+      .cards__wrapper {
         grid-template-columns: repeat(3, auto);
         grid-template-rows: repeat(2, 556px);
-        .card-3{
+
+        .card-3 {
           grid-column: unset;
         }
       }
@@ -1126,16 +1139,16 @@ html {
   }
 }
 
-.services-page{
+.services-page {
   padding-top: 145px;
   margin-bottom: 60px;
-  @include base.small-tablet{
+  @include base.small-tablet {
     padding: 200px 0 60px;
   }
-  @include base.tablet{
+  @include base.tablet {
     padding-top: 280px;
   }
-  @include base.large{
+  @include base.large {
     padding-top: 176px;
   }
 }
