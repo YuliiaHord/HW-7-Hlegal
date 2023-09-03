@@ -708,6 +708,9 @@ html {
     }
   }
   @include base.laptop {
+    .about__container{
+      padding: 0 15px;
+    }
     .slick-slider {
       .slick-slide {
         margin: 0 20px;
@@ -1000,10 +1003,135 @@ html {
     }
   }
 }
+.publication-page {
+  padding: 100px 0 0;
+
+
+  .publications-section {
+    background: base.$grey-bg;
+    padding-bottom: 30px;
+  }
+
+  #publications__tabs {
+    background: transparent;
+    border: none;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: transparent;
+      border: none;
+
+      ul {
+        border-radius: 12px;
+        padding: 0;
+
+        li.ui-tabs-active {
+          background-color: base.$separator-color;
+          &:hover{
+            background-color: base.$separator-color;
+          }
+        }
+
+        li {
+          border: none;
+          margin: 0;
+          background: base.$white;
+          border-radius: 12px;
+          &:hover{
+            background-color: base.$grey-bg;
+          }
+          a {
+            display: block;
+            padding: 10px 30px;
+            font-weight: 700;
+            font-family: Montserrat, sans-serif;
+            color: base.$main-color;
+          }
+        }
+      }
+    }
+
+    .ui-tabs-panel {
+      padding: 30px 0 0;
+    }
+
+    .cards {
+      background: base.$white;
+      font-family: Montserrat, sans-serif;
+      border-radius: 8px;
+
+      img {
+        border-radius: 8px 8px 0px 0px;
+      }
+    }
+  }
+  button {
+    display: block;
+    color: base.$white;
+    font-family: Montserrat, sans-serif;
+    border: none;
+    margin: 30px auto;
+    padding: 18px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    background: base.$btn-regular-color;
+    box-shadow: 0 0 20px 0 rgba(36, 163, 255, 0.50);
+    &:hover{
+      transition: color 0.7s linear;
+      box-shadow: 0 0 20px 0 white;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+  }
+  @include base.small-tablet{
+    padding-top: 180px;
+  }
+  @include base.tablet{
+    padding-top: 275px;
+    #publications__tabs{
+      .cards__wrapper{
+        grid-template-columns: repeat(2, 310px);
+        grid-template-rows: repeat(3, 514px);
+        gap: 30px;
+        .cards{
+          min-height: 514px ;
+        }
+        .card-1{
+          margin-right: 0;
+        }
+        .card-2{
+          margin-left: 0;
+        }
+        .card-3{
+          grid-column: 1/2;
+          h4+p:after{
+            width: 83%;
+          }
+        }
+      }
+    }
+  }
+  @include base.large{
+    padding-top: 173px;
+    #publications__tabs{
+      .cards__wrapper{
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, 556px);
+        .card-3{
+          grid-column: unset;
+        }
+      }
+    }
+  }
+}
 
 .services-page{
   padding-top: 145px;
   margin-bottom: 60px;
+  @include base.small-tablet{
+    padding: 200px 0 60px;
+  }
   @include base.tablet{
     padding-top: 280px;
   }

@@ -84,6 +84,9 @@ body {
   position: relative;
   overflow-x: hidden;
 }
+.menu-open{
+  overflow: hidden;
+}
 
 
 .gradient-text-v1 {
@@ -1067,6 +1070,9 @@ h4 {
         &:last-of-type {
           color: $white;
         }
+        &:hover{
+          background-color: $grey-bg;
+        }
       }
     }
   }
@@ -1122,7 +1128,7 @@ h4 {
 
     p {
       display: inline-block;
-      font-size: 36px;
+      font-size: 28px;
       width: 160px;
     }
     .header__hamburger {
@@ -1130,11 +1136,11 @@ h4 {
         gap: 5.5px;
 
         .slash-s {
-          display: none;
+          display: inline-block;
         }
 
         .slash-m {
-          display: inline-block;
+          display: none;
         }
       }
 
@@ -1171,6 +1177,19 @@ h4 {
       }
       svg {
         color: $main-color;
+      }
+      .header__hamburger{
+        .logo-light {
+          .slash-s {
+            display: none;
+          }
+          .slash-m{
+            display: inline-block
+          }
+          p{
+            font-size: 36px;
+          }
+        }
       }
 
       .light-header-items {
@@ -1212,10 +1231,6 @@ h4 {
   }
 }
 
-.menu-open{
-  overflow: hidden;
-
-}
 
 
 
