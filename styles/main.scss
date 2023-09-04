@@ -434,16 +434,15 @@ html {
   .top-text__content {
     display: flex;
     flex-direction: column;
-
     .top-text__texts {
       h2 {
         font-size: 30px;
-        line-height: normal;
+        line-height: 44px;
         padding-bottom: 27px;
       }
-
       p {
         padding-bottom: 30px;
+        font-size: 19px;
       }
     }
 
